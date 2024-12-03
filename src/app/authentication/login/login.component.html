@@ -1,0 +1,75 @@
+<!-- Login 13 - Bootstrap Brain Component -->
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-7">
+      <!-- <div class="card border border-light-subtle rounded-3 shadow-sm"> -->
+      <mat-card class="bg-white">
+        <mat-card-header class="border-bottom border-light-subtle p-3 p-md-4 p-xl-5">
+          <h1 class="fs-4 fw-normal text-center text-secondary mb-0">Welcome back!</h1>
+        </mat-card-header>
+        <mat-card-content class="p-3 p-md-4 p-xl-5">
+          <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Sign in to your account</h2>
+          <form class="loginForm" [formGroup]="loginForm" (ngSubmit)="submitLoginForm()">
+            <div class="row gy-3">
+              <!-- Username Field -->
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Username</mat-label>
+                  <input matInput type="text" formControlName="username">
+                  <mat-error *ngIf="loginForm.controls['username'].errors && isSubmitted">
+                    <span *ngIf="loginForm.controls['username'].errors?.['required']">Username is required</span>
+                    <span *ngIf="loginForm.controls['username'].errors?.['minlength']">Username must be at least 2 characters</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <!-- Password Field -->
+              <div class="col-12">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>Password</mat-label>
+                  <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password">
+                  <mat-icon matSuffix (click)="toggleHide($event)" [ngClass]="{'text-secondary': hide(), 'text-primary': !hide()}">
+                    {{ hide() ? 'visibility_off' : 'visibility' }}
+                  </mat-icon>
+                  <mat-error *ngIf="loginForm.controls['password'].errors && isSubmitted">
+                    <span *ngIf="loginForm.controls['password'].errors?.['required']">Password is required</span>
+                    <span *ngIf="loginForm.controls['password'].errors?.['minlength']">Password must be at least 6 characters</span>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <!-- Forgot Password Link -->
+              <!-- <div class="col-12">
+                <div class="d-flex justify-content-between">
+                  <a href="#!" class="link-primary text-decoration-none">Forgot password?</a>
+                </div>
+              </div> -->
+
+              <!-- Submit Button -->
+              <div class="col-12">
+                <div class="d-grid my-3">
+                  <ng-container *ngIf="isLoading">
+                    <button mat-raised-button color="primary" disabled>
+                      <app-loader></app-loader>
+                    </button>
+                  </ng-container>
+                  <ng-container *ngIf="!isLoading">
+                    <button mat-raised-button color="primary" type="submit">Log in</button>
+                  </ng-container>
+                </div>
+              </div>
+
+              <!-- Signup Link -->
+              <!-- <div class="col-12">
+                <p class="m-0 text-secondary text-center">
+                  Don't have an account?
+                  <a routerLink="/auth/register" class="link-primary text-decoration-none">Sign up</a>
+                </p>
+              </div> -->
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

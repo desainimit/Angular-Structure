@@ -1,0 +1,11 @@
+<div class="button-group" style="display: flex; justify-content: center; gap: 0.5rem; margin: 0.5rem 0;">
+  <button *ngIf="showEditButton" mat-icon-button color="primary" aria-hidden="true" (click)="onEdit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button *ngIf="showDeleteButton" mat-icon-button color="warn" aria-hidden="true" (click)="onDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button *ngIf="showViewButton" mat-icon-button color="accent" aria-hidden="true" (click)="onView()">
+    <mat-icon>visibility</mat-icon>
+  </button>
+</div>

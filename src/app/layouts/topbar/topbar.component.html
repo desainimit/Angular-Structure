@@ -1,0 +1,33 @@
+<mat-toolbar class="ps-3 ps-md-3 bg-white shadow-sm d-flex justify-content-between align-items-center">
+  <div class="left-side d-flex justify-content-between align-items-center gap-3">
+    <div class="logo d-none d-md-block" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <img src="assets/logo.png" alt="mdo" width="60" height="60">
+    </div>
+    <button mat-icon-button aria-label="Menu icon" (click)="onMenuClick()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="logo d-md-none">
+    <img src="assets/logo.png" alt="mdo" width="45" height="45">
+  </div>
+  <div class="right-side d-flex justify-content-between align-items-center gap-3">
+    <div class="dropdown">
+      <button mat-button [matMenuTriggerFor]="profileMenu">
+        <img src="assets/profile-icon.png" alt="mdo" width="40" height="40">
+      </button>
+      <mat-menu #profileMenu="matMenu" class="bg-light">
+        <ng-container>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </ng-container>
+        <ng-template #loading>
+          <button mat-menu-item>
+            <app-loader></app-loader>
+          </button>
+        </ng-template>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/scss/bootstrap.scss";
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+@import "ngx-toastr/toastr";
+@import "ag-grid-community/styles/ag-grid.min.css";
+@import "ag-grid-community/styles/ag-theme-quartz.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.toast-container {
+  top: 70px !important;
+}
+
+.toast-top-right {
+  top: 70px !important;
+}
+
+.ag-header-cell-label {
+  justify-content: center;
+}
+
+.icon-display {
+  transform: scale(1.5);
+}
